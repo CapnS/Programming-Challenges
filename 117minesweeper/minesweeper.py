@@ -31,7 +31,7 @@ class Game:
         won = self.board.won()
         if won:
             print("YOU WIN")
-            pygame.time.delay(1000)
+            pygame.time.delay(10000)
             sys.exit(0)
         (r,c), right = self.board.get_move()
         if right:
@@ -52,7 +52,7 @@ class Game:
                 self.board.board[r][c] = "lm"
                 self.board.draw()
                 print("YOU LOSE")
-                pygame.time.delay(1000)
+                pygame.time.delay(10000)
                 sys.exit(0)
             else:
                 mines = self.board.get_neighbors((r,c))
