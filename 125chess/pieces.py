@@ -1,6 +1,8 @@
 import pygame
+import os
 
 square_size = 50
+dir_path = os.path.dirname(os.path.realpath(__file__))
 
 def IsClearPath(board,fromTuple,toTuple):
 		r = fromTuple[0]
@@ -34,7 +36,7 @@ def IsClearPath(board,fromTuple,toTuple):
 class Pawn:
 	def __init__(self, color):
 		self.color = color
-		self.image = pygame.image.load("C:/Users/zacha/OneDrive/Documents/Python/Programming Challenges/125chess/images/"+color+"_pawn.png") 
+		self.image = pygame.image.load(os.path.join(dir_path, "images\\"+color+"_pawn.png"))
 		self.image = pygame.transform.scale(self.image, (square_size,square_size))
 
 	def is_valid(self, board, fromTuple, toTuple, enemy):
@@ -66,7 +68,7 @@ class Pawn:
 class Rook:
 	def __init__(self, color):
 		self.color = color
-		self.image = pygame.image.load("C:/Users/zacha/OneDrive/Documents/Python/Programming Challenges/125chess/images/"+color+"_rook.png") 
+		self.image = pygame.image.load(os.path.join(dir_path, "images\\"+color+"_rook.png"))
 		self.image = pygame.transform.scale(self.image, (square_size,square_size))
 
 	def is_valid(self, board, fromTuple, toTuple, enemy):
@@ -79,7 +81,7 @@ class Rook:
 class Knight:
 	def __init__(self, color):
 		self.color = color
-		self.image = pygame.image.load("C:/Users/zacha/OneDrive/Documents/Python/Programming Challenges/125chess/images/"+color+"_knight.png") 
+		self.image = pygame.image.load(os.path.join(dir_path, "images\\"+color+"_knight.png"))
 		self.image = pygame.transform.scale(self.image, (square_size,square_size))
 
 	def is_valid(self, board, fromTuple, toTuple, enemy):
@@ -93,7 +95,7 @@ class Knight:
 class Bishop:
 	def __init__(self, color):
 		self.color = color
-		self.image = pygame.image.load("C:/Users/zacha/OneDrive/Documents/Python/Programming Challenges/125chess/images/"+color+"_bishop.png")
+		self.image = pygame.image.load(os.path.join(dir_path, "images\\"+color+"_bishop.png"))
 		self.image = pygame.transform.scale(self.image, (square_size,square_size))
 
 	def is_valid(self, board, fromTuple, toTuple, enemy):
@@ -106,7 +108,7 @@ class Bishop:
 class Queen:
 	def __init__(self, color):
 		self.color = color
-		self.image = pygame.image.load("C:/Users/zacha/OneDrive/Documents/Python/Programming Challenges/125chess/images/"+color+"_queen.png")
+		self.image = pygame.image.load(os.path.join(dir_path, "images\\"+color+"_queen.png"))
 		self.image = pygame.transform.scale(self.image, (square_size,square_size))
 
 	def is_valid(self, board, fromTuple, toTuple, enemy):
@@ -118,7 +120,7 @@ class Queen:
 class King:
 	def __init__(self, color):
 		self.color = color
-		self.image = pygame.image.load("C:/Users/zacha/OneDrive/Documents/Python/Programming Challenges/125chess/images/"+color+"_king.png")
+		self.image = pygame.image.load(os.path.join(dir_path, "images\\"+color+"_king.png"))
 		self.image = pygame.transform.scale(self.image, (square_size,square_size))
 
 	

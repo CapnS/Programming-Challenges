@@ -2,6 +2,7 @@ import pygame
 from pygame.locals import Color
 from board import Board
 import sys
+import os
 
 class Game:
     def __init__(self):
@@ -15,7 +16,8 @@ class Game:
     def move(self):
         if self.board.IsCheckMate(self.player[0]):
             winner = "white" if self.player == "black" else "black"
-            checkmate = pygame.image.load("C:/Users/zacha/OneDrive/Documents/Python/Programming Challenges/125chess/images/checkmate_"+winner+".jpg")
+            dir_path = os.path.dirname(os.path.realpath(__file__))
+            checkmate = pygame.image.load(os.path.join(dir_path, os.path.join("images","checkmate_"+winner+".jpg")))
             checkmate = pygame.transform.scale(checkmate, (200,200))
             text = self.board.font.render("Checkmate, "+ winner.capitalize() + " Wins!", False, [255, 255, 255], [0, 0, 0])
             self.board.screen.blit(checkmate, (150,150))
@@ -26,7 +28,8 @@ class Game:
         if self.board.IsCheck(self.board.board,self.player[0]):
             print(self.player+ " is in check")
         if self.board.IsStaleMate(self.player[0]):
-            stalemate = pygame.image.load("C:/Users/zacha/OneDrive/Documents/Python/Programming Challenges/125chess/images/stalemate.jpg")
+            dir_path = os.path.dirname(os.path.realpath(__file__))
+            stalemate = pygame.image.load(os.path.join(dir_path, os.path.join("images","stalemate.jpg")))
             stalemate = pygame.transform.scale(stalemate, (200,200))
             self.board.screen.blit(stalemate, (150,150))
             pygame.display.update()

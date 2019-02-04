@@ -15,8 +15,9 @@ class Board:
 		self.boardStart_x = 50
 		self.boardStart_y = 50
 		self.square_size = 50
-		self.white_square = pygame.image.load("C:/Users/zacha/OneDrive/Documents/Python/Programming Challenges/125chess/images/white_square.png").convert()
-		self.brown_square = pygame.image.load("C:/Users/zacha/OneDrive/Documents/Python/Programming Challenges/125chess/images/brown_square.png").convert()
+		dir_path = os.path.dirname(os.path.realpath(__file__))
+		self.white_square = pygame.image.load(os.path.join(dir_path, os.path.join("images","white_square.png"))).convert()
+		self.brown_square = pygame.image.load(os.path.join(dir_path, os.path.join("images","brown_square.png"))).convert()
 		self.has_moved = {
 							(0,0): False,
 							(0,4): False,
